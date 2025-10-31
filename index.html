@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юлия Лавренова | Сайт-визитка</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #8a2be2;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,138.7C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        /* About */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Education & Music */
+        .edu-music {
+            background-color: #f0f4f8;
+        }
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 350px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        
+        .achievement-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .achievement-year {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Goals */
+        .goals {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .goals h2 {
+            color: white;
+        }
+        
+        .goal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Contacts */
+        .contacts {
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <img src="photo_2025-10-31_16-39-32.jpg" alt="Юлия Лавренова" class="profile-img">
+            <h1>Юлия Лавренова</h1>
+            <p class="tagline">Ученица, музыкант, активистка, будущий журналист</p>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Обо мне</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Привет! Меня зовут Юлия Лавренова, и я учусь в 9-ом классе МБОУ "Отрадненская СОШ 2". Всю свою школьную жизнь я была круглой отличницей и стремлюсь к знаниям во всех сферах.</p>
+                    <p>Помимо учебы в школе, я учусь в 7-ом классе МБУ ДШИ №5 на отделении народных инструментов, где осваиваю классическую гитару. Уже три года я состою в ансамбле гитаристов, что позволяет мне развивать не только музыкальные навыки, но и умение работать в команде.</p>
+                    <p>В настоящее время я активно готовлюсь к олимпиадам по литературе и английскому языку, а также работаю тестировщиком игр и СММ-специалистом проекта "ФразоЛаб". Кроме того, я разработала медиапроект "Первые для Первых", в рамках которого беру интервью у известных личностей Воронежской области.</p>
+                </div>
+                <div class="about-image">
+                    <img src="photo_2025-10-31_16-39-32 (2).jpg" alt="Юлия Лавренова - круглая отличница">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Music -->
+    <section class="edu-music">
+        <div class="container">
+            <div class="section-title">
+                <h2>Образование и музыка</h2>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="photo_2025-10-31_16-37-31.jpg" alt="Школа" class="card-img">
+                    <div class="card-content">
+                        <h3>Школьное образование</h3>
+                        <p>Учусь в 9-ом классе МБОУ "Отрадненская СОШ 2". Всю жизнь была круглой отличницей, что подтверждают мои достижения и оценки.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="photo_2025-10-31_16-40-12.jpg" alt="Музыкальная школа" class="card-img">
+                    <div class="card-content">
+                        <h3>Музыкальное образование</h3>
+                        <p>Учусь в 7-ом классе МБУ ДШИ №5 на отделении народных инструментов, класс классической гитары. Три года состою в ансамбле гитаристов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Достижения в Движении Первых</h2>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <span class="achievement-year">2023</span>
+                    <h3>Победитель всероссийского конкурса</h3>
+                    <p>Победитель всероссийского конкурса по созданию квестов "Люди идут по свету".</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-year">2025</span>
+                    <h3>Финалист регионального конкурса</h3>
+                    <p>Финалист регионального конкурса "Лидер 21-го века" в номинации "Лидер медиацентра Движения Первых".</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-year">Текущая деятельность</span>
+                    <h3>Заместитель председателя</h3>
+                    <p>Заместитель председателя местного Совета Первых Новоусманского района II созыва.</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-year">Текущая деятельность</span>
+                    <h3>Член регионального Совета</h3>
+                    <p>Член регионального Совета Первых Воронежской области II созыва.</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-year">2025</span>
+                    <h3>Лидер медиацентра</h3>
+                    <p>Лидер местного медиацентра Новоусманского района "Ритм Первых" (февраль - сентябрь 2025).</p>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-year">2024-настоящее время</span>
+                    <h3>Участник медиацентра</h3>
+                    <p>Участник регионального медиацентра Воронежской области "ВКУС" (с ноября 2024).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals -->
+    <section class="goals">
+        <div class="container">
+            <div class="section-title">
+                <h2>Моя главная цель</h2>
+            </div>
+            <div class="goal-content">
+                <p>Моя главная цель — поступить в Москву на журналистику или филологию. Я уверена, что мои знания, опыт и стремление к развитию помогут мне достичь этой цели и стать профессионалом в выбранной сфере.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="contacts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Свяжитесь со мной</h2>
+            </div>
+            <div class="social-links">
+                <a href="https://t.me/JulieIsAlwaysOnline" class="social-link" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://vk.com/julialavr851" class="social-link" target="_blank">
+                    <i class="fab fa-vk"></i>
+                    <span>ВКонтакте</span>
+                </a>
+                <a href="https://t.me/FrazoLab" class="social-link" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>ФразоЛаб</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Юлия Лавренова. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при прокрутке
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Анимируем карточки и элементы
+            const cards = document.querySelectorAll('.card, .achievement-item, .about-image, .about-text');
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
